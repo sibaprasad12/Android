@@ -12,4 +12,9 @@
     <string name="mvi">MVI</string>
     <string name="title_activity_mvvm">MvvmActivity</string>
     <string name="mvvmDatabinding">MVVM Data Binding</string>
+    <string name="click_button_example">Click on the button</string>
+    <string name="string_request">String Request</string>
+    <string name="json_object_request">JSON object Request</string>
+    <string name="json_array_request">JSON ARRAY Request</string>
+    <string name="image_request">Image Request</string>
 </resources>
