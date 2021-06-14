@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ArchitectureAndDesignPattern">
-        <activity android:name=".mvvmWithDataBinding.MvvmDatabindingActivity"/>
+        <activity android:name=".cleanArchitecture.CleanArchitectureActivity"></activity>
+        <activity android:name=".solidPrinciple.SolidPrincipleActivity" />
+        <activity android:name=".mvvmWithDataBinding.MvvmDatabindingActivity" />
 
         <uses-library
             android:name="com.google.android.wearable"
@@ -33,7 +35,6 @@
         <activity
             android:name=".mvi.MviActivity"
             android:label="@string/title_activity_mvi" />
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
