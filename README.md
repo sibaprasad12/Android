@@ -1,19 +1,20 @@
-# AndroidWorld
-Its contains all the sample code of new and advance concepts in android
-  
-- ## [Android Security](https://github.com/spdobest/AndroidWorld/blob/AndroidSecurity/README.md)  
-- ## [Android Architecture Design pattern](https://github.com/spdobest/AndroidWorld/blob/Arch_DesignPatterns/README.md)  
-- ## [Clean Architecture and Solid Principle](https://github.com/spdobest/AndroidWorld/blob/Arch_DesignPatterns/PRINCIPLES_ARCHITECTURE.md)  
-- ## [Android Accessibility](https://github.com/spdobest/AndroidWorld/blob/Accessibility/README.md)  
-- ## [Jet Pack](https://github.com/spdobest/AndroidWorld/blob/Android_JetPack/README.md)  
-- ## [Localization](https://github.com/spdobest/AndroidWorld/blob/Localization/README.md)  
-- ## [Android Network Call](https://github.com/spdobest/AndroidWorld/blob/NetworkCalls/README.md)  
-- ## [Android Profiling](https://github.com/spdobest/AndroidWorld/blob/AndroidProfiling/README.md)   
-- ## [Background Services](https://github.com/spdobest/AndroidWorld/blob/BackgroundServices/README.md)
-- ## [Database](https://github.com/spdobest/AndroidWorld/blob/Database/README.md)
-- ## [Firebase](https://github.com/spdobest/AndroidWorld/blob/Firebase/README.md)
-- ## [Background Services](https://github.com/spdobest/AndroidWorld/blob/BackgroundServices/README.md)
-- ## [Background Services](https://github.com/spdobest/AndroidWorld/blob/BackgroundServices/README.md)
+## Clean Architecture in Android — a beginner approach
+A clean architecture starting point for android projects
 
+Check my article on Medium: https://nicola-gallazzi-dev.medium.com/clean-architecture-in-android-a-beginner-approach-be0ce00d806b
 
+## Layers
+1. Presentation: the layer that interacts with the UI.
 
+2. Use cases: The actions that the user can trigger (clicking on a button, navigating to a destination)
+
+3. Domain: contains all the business models (data classe    s)
+
+4. Data: contains an abstract definition of different data sources. It's modeled using repositories and data sources
+
+5. Framework: implements the dependencies (proper of android framework) we provided in the rest of the layers. Should contain classes specific of the android framework
+
+## App modules
+- App: includes everything about android framework, so Framework and Presentation layer
+- Domain: contains the definitions of business logic of the app, the server data model, the abstract definition of repositories and the definition of the use cases. It’s a simple, pure kotlin module (android independent)
+- Data: contains the implementation of the abstract definitions of the domain layer. Can be reused by any application without modifications. It contains repositories and data sources implementations, the database definition and its DAOs, the network APIs definitions, some mappers to convert network api models to database models and vice versa.
