@@ -17,4 +17,6 @@
     <string name="json_object_request">JSON object Request</string>
     <string name="json_array_request">JSON ARRAY Request</string>
     <string name="image_request">Image Request</string>
+    <string name="volley_with_mvp">Volley With MVP</string>
+    <string name="cleanArchitecture">Clean Architecture</string>
 </resources>

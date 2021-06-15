@@ -13,9 +13,13 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.ArchitectureAndDesignPattern">
-        <activity android:name=".volleyWithMvp.VolleyMvpActivity"></activity>
-        <activity android:name=".cleanArchitecture.CleanArchitectureActivity" />
-        <activity android:name=".solidPrinciple.SolidPrincipleActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".mvvmWithDataBinding.MvvmDatabindingActivity" />
         <activity
             android:name=".mvvm.MvvmActivity"
@@ -24,13 +28,13 @@
         <activity
             android:name=".mvi.MviActivity"
             android:label="@string/title_activity_mvi" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".volleyWithMvp.VolleyMvpActivity"/>
+        <activity android:name=".volleyWithMvp.JsonArrayRequestActivity"/>
+        <activity android:name=".volleyWithMvp.JsonObjectRequestActivity"/>
+        <activity android:name=".volleyWithMvp.StringRequestActivity"/>
+        <activity android:name=".volleyWithMvp.ImageActivity"/>
+
     </application>
 
 </manifest>
