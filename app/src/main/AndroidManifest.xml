@@ -5,6 +5,7 @@
         package="spm.androidworld.all">
 
     <dist:module dist:instant="true" />
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
@@ -20,8 +21,30 @@
             android:theme="@style/AppTheme"
             tools:ignore="HardcodedDebugMode"
             tools:replace="android:debuggable">
+        <service
+                android:name=".services.playMusic.MusicService"
+                android:enabled="true"
+                android:exported="true"></service>
 
+        <activity android:name=".services.playMusic.MusicActivity" />
 
+        <service
+                android:name=".services.updateUiUsingHandler.MyIntentServiceWithHandler"
+                android:exported="false" />
+
+        <activity android:name=".services.updateUiUsingHandler.HandlerActivity" />
+        <activity android:name=".services.intentServiceWIthResultReciever.IntentServiceActivity" />
+
+        <service
+                android:name=".services.intentServiceWIthResultReciever.MyIntentService"
+                android:exported="false" />
+        <service
+                android:name=".services.bindServices.MyBindService"
+                android:enabled="true"
+                android:exported="true" />
+
+        <activity android:name=".services.bindServices.BindServiceActivity" />
+        <activity android:name=".services.ServicesActivity" />
         <activity android:name=".MainActivity" />
         <activity
                 android:name=".base.use.SecondaryActivity"
