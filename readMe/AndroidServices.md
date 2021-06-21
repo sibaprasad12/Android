@@ -29,9 +29,6 @@ stopService(serviceIntent)
 
 | VALUE Oe Return in OnStart Command | Auto Restart | Intent
 | ------ | ------ |-------|
-| Dropbox | [plugins/dropbox/README.md][PlDb] |
-| GitHub | [plugins/github/README.md][PlGh] |
-| Google Drive | [plugins/googledrive/README.md][PlGd] |
-| OneDrive | [plugins/onedrive/README.md][PlOd] |
-| Medium | [plugins/medium/README.md][PlMe] |
-| Google Analytics | [plugins/googleanalytics/README.md][PlGa] |
+| DSTART_STICKY| YES | Null Intent |
+| GSTART_NOT_STICKY| NO | With Intent When Started |
+| START_REDELEVER_INTENT | YES | INTENT |
