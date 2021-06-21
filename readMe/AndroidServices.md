@@ -27,8 +27,8 @@ stopService(serviceIntent)
 - But in some scenario, services gets killed. what happens to the service when memory available again
 - In the onStart command, whatever you return, that depends on the behaviour of the service
 
-| VALUE Oe Return in OnStart Command | Auto Restart | Intent
+| VALUE Oe Return in OnStart Command | Auto Restart | Intent | WHEN TO USE |
 | ------ | ------ |-------|
-| DSTART_STICKY| YES | Null Intent |
+| DSTART_STICKY| YES | Null Intent | Services are being explictly managed & Long Running. No Need to remember state at kill time. Long Running Music Playing Service |
 | GSTART_NOT_STICKY| NO | With Intent When Started |
 | START_REDELEVER_INTENT | YES | INTENT |
