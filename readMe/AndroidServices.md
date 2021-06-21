@@ -26,6 +26,7 @@ stopService(serviceIntent)
 - Application may gets killed but services run in background
 - But in some scenario, services gets killed. what happens to the service when memory available again
 - In the onStart command, whatever you return, that depends on the behaviour of the service
+
 | VALUE Oe Return in OnStart Command | Auto Restart | Intent
 | ------ | ------ |-------|
 | Dropbox | [plugins/dropbox/README.md][PlDb] |
