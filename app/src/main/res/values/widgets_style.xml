@@ -11,6 +11,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:selectable">false</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
         <item name="android:clickable">false</item>
     </style>
 
@@ -19,6 +20,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:maxLines">1</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
         <item name="android:selectable">false</item>
         <item name="android:focusable">true</item>
     </style>
@@ -40,6 +42,7 @@
         <item name="android:gravity">left|center_vertical</item>
         <item name="android:textSize">@dimen/dimen_14sp</item>
         <item name="android:textColor">@android:color/black</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
         <item name="android:alpha">0.87</item>
     </style>
 
@@ -79,6 +82,8 @@
         <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/dimen_14sp</item>
         <item name="android:textColor">@android:color/black</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:background">@drawable/button_selector_default</item>
         <item name="android:alpha">0.87</item>
     </style>
 
@@ -147,6 +152,7 @@
         <item name="android:textSize">@dimen/dimen_14sp</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:paddingRight">@dimen/dimen_4dp</item>
+        <item name="background">@drawable/btn_selector</item>
     </style>
 
     <!--EDITTEXT STYLE-->
@@ -193,6 +199,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:padding">2dp</item>
+        <item name="android:background">@drawable/rounded_corner_4dp</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:textStyle">bold</item>
@@ -253,6 +260,8 @@
     </style>
 
     <style name="MyAnimation.Window" parent="@android:style/Animation.Activity">
+        <item name="android:windowEnterAnimation">@anim/anim_in_dialogfragment</item>
+        <item name="android:windowExitAnimation">@anim/anim_out_dialogfragment</item>
     </style>
 
     <style name="Widget.CardContent" parent="android:Widget">

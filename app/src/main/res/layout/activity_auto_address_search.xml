@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical">
+
+    <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonAutoAddressWidgetImplementation"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="Auto Search Address Widget Implementation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonFragmentWithSearchWidget"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:text="Fragment With AutoAddress Widget"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonAutoAddressWidgetImplementation" />
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonFragmentWithoutSearchWidget"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:text="Fragment With AutoAddress Widget"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonFragmentWithSearchWidget" />
+
+</LinearLayout>
