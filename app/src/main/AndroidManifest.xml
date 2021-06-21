@@ -5,14 +5,39 @@
         package="spm.androidworld.all">
 
     <dist:module dist:instant="true" />
+    <!--
+    <permission android:description="string resource"
+                android:icon="drawable resource"
+                android:label="string resource"
+                android:name="string"
+                android:permissionGroup="string"
+                android:protectionLevel=["normal" | "dangerous" |
+        "signature" | ...] />
+    -->
+    <permission
+            android:name="spm.androidworld.all.myPermission"
+            android:label="my_permission"
+            android:protectionLevel="dangerous" />
 
+    <uses-permission android:name="spm.androidworld.all.myPermission" />
+
+    <uses-feature
+            android:name="android.hardware.camera"
+            android:required="true" />
+    <uses-feature
+            android:name="android.hardware.bluetooth"
+            android:required="true" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-            android:allowBackup="false"
+            android:allowBackup="true"
             android:debuggable="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
@@ -21,40 +46,46 @@
             android:theme="@style/AppTheme"
             tools:ignore="HardcodedDebugMode"
             tools:replace="android:debuggable">
-        <service
-                android:name=".services.playMusic.MusicService"
-                android:enabled="true"
-                android:exported="true"></service>
+        <activity android:name=".sqlcipher.SqlCipherDbActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <activity android:name=".services.playMusic.MusicActivity" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
-        <service
-                android:name=".services.updateUiUsingHandler.MyIntentServiceWithHandler"
-                android:exported="false" />
-
-        <activity android:name=".services.updateUiUsingHandler.HandlerActivity" />
-        <activity android:name=".services.intentServiceWIthResultReciever.IntentServiceActivity" />
-
-        <service
-                android:name=".services.intentServiceWIthResultReciever.MyIntentService"
-                android:exported="false" />
-        <service
-                android:name=".services.bindServices.MyBindService"
-                android:enabled="true"
-                android:exported="true" />
-
-        <activity android:name=".services.bindServices.BindServiceActivity" />
-        <activity android:name=".services.ServicesActivity" />
-        <activity android:name=".MainActivity" />
+        </activity>
+        <!-- android:permission="spm.androidworld.all.myPermission" -->
         <activity
-                android:name=".base.use.SecondaryActivity"
+                android:name=".CustomPermissionActivity"
+                android:exported="true">
+
+            <intent-filter>
+                <action android:name="com.testpackage.permissiontestclient.MyAction" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".encryptDecryptFiles.EncryptDecryptFileActivity">
+
+        </activity>
+        <activity android:name=".hashing.HashingExampleActivity">
+
+        </activity>
+        <activity android:name=".RsaEncryptionActivity">
+
+        </activity>
+        <activity
+                android:name=".AndroidSecurityActivity"
                 android:theme="@style/AppTheme.NoActionBar1">
+
+            <!--
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            -->
         </activity>
     </application>
 

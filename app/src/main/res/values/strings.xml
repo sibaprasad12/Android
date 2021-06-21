@@ -7,7 +7,6 @@
     <string name="moviedb_readaccess_token">
         eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiN2ViMzg5ZTllNmFkNWU0MzQwNzdlNGI2ZDgzYWQ3OCIsInN1YiI6IjVhOTI5YWQ5MGUwYTI2MTZjMzAxY2IyOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.WK8z4ipmqtQUKpsGQi2wCwBrcFow0Lq5nxi-ANNvzAY
     </string>
-    <string name="api_list">https://developers.themoviedb.org/3/movies/get-movie-details</string>
     <string name="name">Name</string>
     <string name="password">Password</string>
     <string name="save">Save</string>
@@ -101,4 +100,5 @@
     <string name="rating">Rating</string>
     <string name="logout">Logout</string>
     <string name="back">Back</string>
+    <string name="permdesc_deadlyActivity">Dangerous Custom permission description </string>
 </resources>
