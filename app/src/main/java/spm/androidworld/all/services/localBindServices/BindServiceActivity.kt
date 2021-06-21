@@ -1,4 +1,4 @@
-package spm.androidworld.all.services.bindServices
+package spm.androidworld.all.services.localBindServices
 
 import android.content.ComponentName
 import android.content.Context

@@ -46,3 +46,41 @@ stopService(serviceIntent)
     - Services are being explictly managed.
     - Restart from the previous state at the kill time.
     - File Download
+
+## Bound Service
+- When you want to update UI from a service and the values get from a service, then that type of services are known as Bound Services
+- If we do the binding of the service to a UI(Fragment/activity). we use **Local binding**
+- If you want to bind the UI (Fragment/Activity) of one application to the service of another application, we use **Remote Binding** We can call it as Inter Process Communication
+- Boud services are of 2 types
+    - Local Binding -> This can be done using IBinder
+    - Remote Binding -> This can be done using Messenger Or AIDL
+
+## Local Binding
+- In this example we will generate a random number in service and display it in activity
+- In th service class we will override onBind method and will return local IBinder
+- ```
+        class MyBindService : Service() {
+            // Random number generator
+            private val mGenerator = Random()
+            /** method for clients  */
+            val randomNumber: Int
+                get() = mGenerator.nextInt(100)
+            // Binder given to clients
+            private val binder = LocalBinder()
+
+            inner class LocalBinder : Binder() {
+                // Return this instance of LocalService so clients can call public methods
+                fun getService(): MyBindService = this@MyBindService
+            }
+            override fun onBind(intent: Intent): IBinder {
+                return binder
+            }
+        }
+    ```
+- You can find the example in sourc ecode **https://github.com/sibaprasad12/Android/tree/main/app/src/main/java/spm/androidworld/all/services/localBindServices**
+
+## Remote Service connection using messenger
+- In this case One application can use another application's Service to do it's task.
+- In another application the service must be exported = true, otherwise other application can not access the Service
+- In the source code you can find the example here
+

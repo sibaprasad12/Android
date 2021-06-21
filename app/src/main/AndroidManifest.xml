@@ -39,11 +39,11 @@
                 android:name=".services.intentServiceWIthResultReciever.MyIntentService"
                 android:exported="false" />
         <service
-                android:name=".services.bindServices.MyBindService"
+                android:name=".services.localBindServices.MyBindService"
                 android:enabled="true"
                 android:exported="true" />
 
-        <activity android:name=".services.bindServices.BindServiceActivity" />
+        <activity android:name=".services.localBindServices.BindServiceActivity" />
         <activity android:name=".services.ServicesActivity" />
         <activity android:name=".MainActivity" />
         <activity
@@ -56,6 +56,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".services.serviceFromCodeTutor.clientApp.ClientSideMainActivity"/>
     </application>
 
 </manifest>
