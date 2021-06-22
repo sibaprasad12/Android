@@ -125,13 +125,28 @@ stopService(serviceIntent)
 - Can not put conditin to restart the service
 - To handle these issue, we can use JobScheduler
 ## Job Scheduler with JobService
-- Job service
-    - fun onStartJob(jobParameter) : Boolean
-    - fun onStopJob(JobParameter) : Boolean
-    - onDestroy()
+- This is the base class that handles asynchronous requests that were previously scheduled.
+- You are responsible for overriding JobService#onStartJob(JobParameters), which is where you will implement your job logic.
+- This service executes each incoming job on a Handler running on your application's main thread.
+- This means that you must offload your execution logic to another thread/handler/AsyncTask of your choosing. Not doing so will result in blocking any future callbacks from the JobManager - specifically onStopJob(android.app.job.JobParameters), which is meant to inform you that the scheduling requirements are no longer being met.
+- Main methods in Job Service are
+    - **jobFinished(JobParameters params, boolean wantsReschedule)**
+        - Call this to inform the JobScheduler that the job has finished its work.
+    - **abstract boolean	onStartJob(JobParameters params)**
+        - Called to indicate that the job has begun executing.
+    - **abstract boolean	onStopJob(JobParameters params)**
+        - This method is called if the system has determined that you must stop execution of your job even before you've had a chance to call jobFinished(android.app.job.JobParameters, boolean).
 - FOr job services, we have to define BIND_JOB_SERVICE in service tag and need to add BOOT_COMPLETED permissin in the manifest to start the jobService once the device rebooted.
 - FInd the example **https://github.com/AnilDeshpande/UIThreadDemo/tree/jobscheduler-demo**
+- Define your Jobservices like this
+```
+ ​<service
+           ​android:name=".TestJobService"
+           ​android:label="Word service"
+           ​android:permission="android.permission.BIND_JOB_SERVICE" >
 
+</service
+```
 ## Foreground service
 - if the application gets killed then jobIntentService and Job Service gets killed
 - If you want to keep it running if the app killed, then use ForeGroundService
@@ -180,7 +195,7 @@ stopService(serviceIntent)
 - workManager.toBeginWIth(worker1).then(worker2).then(worker3)
 - You can set worker tag in the worker request to cancel later
 - If you want to make the worker 1 and worker2 run parlally and worker3 will run later
-- YOu can pass array of worker to workmanager
+- You can pass array of worker to workmanager
 ## How the Workmanager works Long running task using notification
 - workmanagerForLongRUnningTAsk.png
 - For More details you can find the example here **https://github.com/AnilDeshpande/UIThreadDemo/tree/longrunning-workder-demo**

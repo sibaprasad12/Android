@@ -21,7 +21,13 @@
             android:theme="@style/AppTheme"
             tools:ignore="HardcodedDebugMode"
             tools:replace="android:debuggable">
-        <activity android:name=".services.workManager.WorkManagerActivity"></activity>
+        <service
+                android:name=".services.jobService.MyJobService"
+                android:enabled="true"
+                android:permission="android.permission.BIND_JOB_SERVICE"
+                />
+
+        <activity android:name=".services.workManager.WorkManagerActivity" />
         <activity android:name=".services.jobService.JobServiceAndSchedulerActivity" />
         <activity android:name=".services.jobIntentService.JobIntentServiceActivity" />
         <activity android:name=".services.foreGroundService.ForegroundServiceActivity" />
