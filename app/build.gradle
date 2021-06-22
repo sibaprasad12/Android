@@ -163,4 +163,7 @@ dependencies {
     implementation extLibraries.retrofitRxAdapter
     implementation extLibraries.okhttp3
     implementation extLibraries.okhttp3Interceptor
+    implementation 'androidx.core:core-ktx:1.5.0'
+
+    implementation "androidx.work:work-runtime:2.5.0"
 }

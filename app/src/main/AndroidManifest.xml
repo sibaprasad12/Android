@@ -21,10 +21,15 @@
             android:theme="@style/AppTheme"
             tools:ignore="HardcodedDebugMode"
             tools:replace="android:debuggable">
+        <activity android:name=".services.workManager.WorkManagerActivity"></activity>
+        <activity android:name=".services.jobService.JobServiceAndSchedulerActivity" />
+        <activity android:name=".services.jobIntentService.JobIntentServiceActivity" />
+        <activity android:name=".services.foreGroundService.ForegroundServiceActivity" />
+
         <service
                 android:name=".services.playMusic.MusicService"
                 android:enabled="true"
-                android:exported="true"></service>
+                android:exported="true" />
 
         <activity android:name=".services.playMusic.MusicActivity" />
 
@@ -56,7 +61,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".services.serviceFromCodeTutor.clientApp.ClientSideMainActivity"/>
+        <activity android:name=".services.serviceFromCodeTutor.clientApp.ClientSideMainActivity" />
     </application>
 
 </manifest>

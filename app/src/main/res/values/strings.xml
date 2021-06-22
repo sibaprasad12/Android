@@ -109,4 +109,5 @@
     <string name="string_bind">Bind Service</string>
     <string name="string_unbind">Unbind Service</string>
     <string name="string_getrandom_number">Get random number</string>
+    <string name="channelId">1234</string>
 </resources>

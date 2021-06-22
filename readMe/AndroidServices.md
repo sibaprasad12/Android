@@ -82,5 +82,109 @@ stopService(serviceIntent)
 ## Remote Service connection using messenger
 - In this case One application can use another application's Service to do it's task.
 - In another application the service must be exported = true, otherwise other application can not access the Service
-- In the source code you can find the example here
+- In the source code you can find the example here **https://github.com/sibaprasad12/Android/tree/main/app/src/main/java/spm/androidworld/all/services/serviceFromCodeTutor*
+>> Bound service can not be stopped, it only unbind
+
+## Intent Service
+- It's parent class is Service
+- But it run in another thread apart from Main thread
+- It executes all the methods calling from onHandleIntent method in background thread
+- It stop itself once the task is completed
+- You can pass multiple parameters to do multiple task in a queue
+- You can bind intent service same as we have done for normal service
+
+## Changes Background services in Oreo
+- IN Oreo and later os, android not allow services to run in the background for longer time
+- System kills the services automatically after 2 minutes you put the application in background
+- Once you put your application in foreground the service start running again
+- To solve this issue, we can use any one of these
+- Forground service
+- Job Scheduler
+- JobIntentService
+
+## JobIntentService
+- Its base class is intent service
+- You can override all the methods in the service class
+- One more method in JobIntentService is enQueueWork method
+    - enQueueWork(context:Context, cls: Class, jobId: Int, work:Intent)
+    - cls is nothing but the jobIntent service
+    - JobId is unique integer
+    - work is the intent through which you want to pass data to the service
+- One more method is fun onHandleWORK(intent: Intent)
+    - This method is executed as soon as you invock enqueueWOrk method
+- fun onStopCurrentWork() : Boolean
+    - If you return true, that means you tell OS to reschedule the service
+    - IF you return false, the you tells OS not to reschedule or start the service again
+- Don't forget to add permission BIND_JOB_SERVIE
+- Also add WAKE_LOCK permission in manifest file
+- You can find the example here **https://github.com/AnilDeshpande/UIThreadDemo** in it's respective branch
+### Disadvantage of JobIntentService
+- You can not put condition to stop a running JobIntentService
+- Can not set periodically
+- Can not stop explicitly
+- Can not put conditin to restart the service
+- To handle these issue, we can use JobScheduler
+## Job Scheduler with JobService
+- Job service
+    - fun onStartJob(jobParameter) : Boolean
+    - fun onStopJob(JobParameter) : Boolean
+    - onDestroy()
+- FOr job services, we have to define BIND_JOB_SERVICE in service tag and need to add BOOT_COMPLETED permissin in the manifest to start the jobService once the device rebooted.
+- FInd the example **https://github.com/AnilDeshpande/UIThreadDemo/tree/jobscheduler-demo**
+
+## Foreground service
+- if the application gets killed then jobIntentService and Job Service gets killed
+- If you want to keep it running if the app killed, then use ForeGroundService
+- Foreground Service performs the task that are noticeable to the user.\ by showing a notification
+- YOu need to add on permission FOREGROUND_SERVICE in manifest file
+- Define serviceType in the manifest file like (dataSync, DeviceConnection, locationUpdate)
+- To start a service you need to call starForeground(id, Notification)
+
+## Work Manager
+- An API that makes it easy to schedule deferrable, asynchronous tasks that are expected to run reliably
+- Deferrable -
+    - Scheduling Mechanism
+        - One time
+        - Repetitive
+        - Compatible with DOze mode , Power saving mode
+- Reliabily
+    - Run Under Constraints
+        - Run only when device is WIFI connected
+        - When device idle
+        - When it has suffecient Storage
+    - Always finish the work
+- Worker class
+    - doWork()
+    - onStopped()
+- Constraint
+    - Network type
+    - BatteryNotLow
+    - RequiresCharging
+    - DeviceIdle
+    - StorageLow
+- WorkRequest
+    - One time work request
+    - Periodic Work Request
+- WorkManager
+    - Enquue Work
+    - Cancelling Work
+
+## Advantage
+- YOu can start your  task from background
+- It will continue running after you restart your application
+- You can set periodic work as weell- which means it will repeate after sometime you set
+
+## Working with multiple Worker
+- Lets consider, you have 3 Worker class, Worker1, Worker2, WOrker3. YOu want to run the task one after another
+- WIth the help of WOrkManager
+- workManager.toBeginWIth(worker1).then(worker2).then(worker3)
+- You can set worker tag in the worker request to cancel later
+- If you want to make the worker 1 and worker2 run parlally and worker3 will run later
+- YOu can pass array of worker to workmanager
+## How the Workmanager works Long running task using notification
+- workmanagerForLongRUnningTAsk.png
+- For More details you can find the example here **https://github.com/AnilDeshpande/UIThreadDemo/tree/longrunning-workder-demo**
+
+
+
 
