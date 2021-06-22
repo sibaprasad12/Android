@@ -48,7 +48,7 @@ class WorkManagerActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
-    fun onClick(view: View) {
+    override fun onClick(view: View) {
         when (view.getId()) {
             R.id.buttonThreadStarter -> {
                 mStopLoop = true
