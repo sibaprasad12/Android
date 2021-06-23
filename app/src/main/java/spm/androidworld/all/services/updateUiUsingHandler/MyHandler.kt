@@ -14,7 +14,7 @@ class MyHandler(receiver: AppReceiver) : Handler() {
 
     private val appReceiver: AppReceiver = receiver
 
-    override fun handleMessage(msg: Message?) {
+    override fun handleMessage(msg: Message) {
         super.handleMessage(msg)
         appReceiver.onReceiveResult(msg)
     }

@@ -16,9 +16,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import spm.androidworld.all.R;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class CodeTutorMainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String TAG = MainActivity.class.getSimpleName();
+    private static final String TAG = CodeTutorMainActivity.class.getSimpleName();
 
     private Button buttonStart, buttonStop, buttonBind, buttonUnBind, buttonGetRandomNumber;
     private TextView textViewthreadCount;

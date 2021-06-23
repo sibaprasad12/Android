@@ -1,7 +1,8 @@
-package spm.androidworld.all
+package spm.androidworld.all.services
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import spm.androidworld.all.R
 
 class MainActivity : AppCompatActivity() {
 

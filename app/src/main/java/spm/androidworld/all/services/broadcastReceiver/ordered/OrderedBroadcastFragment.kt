@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_ordered_broadcast.*
 import spm.androidworld.all.R
+import spm.androidworld.all.services.broadcastReceiver.ordered.NotificationResultReceiver
 
 
 /**
@@ -30,7 +31,7 @@ class OrderedBroadcastFragment : Fragment(), View.OnClickListener {
         buttonSendOrderedBroadcast.setOnClickListener(this)
     }
 
-    fun onReceiveFirebaseMessage() {
+    private fun onReceiveFirebaseMessage() {
         val intent = Intent("spm.androidworld.all.action.NOTIFICATION")
         activity?.sendOrderedBroadcast(
             intent,

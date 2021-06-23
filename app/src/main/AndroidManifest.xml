@@ -21,11 +21,12 @@
             android:theme="@style/AppTheme"
             tools:ignore="HardcodedDebugMode"
             tools:replace="android:debuggable">
+        <activity android:name=".fcm.PushNotificationActivity"></activity>
+
         <service
                 android:name=".services.jobService.MyJobService"
                 android:enabled="true"
-                android:permission="android.permission.BIND_JOB_SERVICE"
-                />
+                android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <activity android:name=".services.workManager.WorkManagerActivity" />
         <activity android:name=".services.jobService.JobServiceAndSchedulerActivity" />
@@ -56,7 +57,7 @@
 
         <activity android:name=".services.localBindServices.BindServiceActivity" />
         <activity android:name=".services.ServicesActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".services.MainActivity" />
         <activity
                 android:name=".base.use.SecondaryActivity"
                 android:theme="@style/AppTheme.NoActionBar1">
@@ -67,7 +68,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".services.serviceFromCodeTutor.clientApp.ClientSideMainActivity" />
+        <activity android:name=".services.serviceFromCodeTutor.clientApp.ClientSideMainActivity" /> <!-- FIREBASE -->
+        <service
+                android:name=".fcm.MyFirebaseMessagingService"
+                android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <!--
+ Set custom default icon. This is used when no icon is set for incoming notification messages.
+     See README(https://goo.gl/l4GJaQ) for more.
+        -->
+        <meta-data
+                android:name="com.google.firebase.messaging.default_notification_icon"
+                android:resource="@drawable/rounded_corner" />
+        <!--
+ Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
+        <meta-data
+                android:name="com.google.firebase.messaging.default_notification_color"
+                android:resource="@color/colorAccent" />
+        <meta-data
+                android:name="com.google.firebase.messaging.default_notification_channel_id"
+                android:value="@string/default_notification_channel_id" />
     </application>
 
 </manifest>

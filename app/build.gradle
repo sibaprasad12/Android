@@ -6,18 +6,41 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
-// Creates a variable called keystorePropertiesFile, and initializes it to the
-// keystore.properties file.
-def keystorePropertiesFile = rootProject.file("keystore.properties")
-
-// Initializes a new Properties() object called keystoreProperties.
-def keystoreProperties = new Properties()
-
-// Loads the keystore.properties file into the keystoreProperties object.
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+apply plugin: 'com.android.application'
+// Add the following line:
+apply plugin: 'com.google.gms.google-services'  // Google Services plugin
 
 
 android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "spm.androidworld.all"
+        minSdkVersion 24
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+/*android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "spm.androidworld.all"
@@ -68,49 +91,9 @@ android {
     }
 
     buildTypes {
-
         release {
-            applicationIdSuffix ".release"
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "boolean", "isDebugable", "false"
-        }
-
-        debug {
-            applicationIdSuffix ".debug"
-            minifyEnabled false
-            buildConfigField "boolean", "isDebugable", "true"
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-
-        /**
-         * The `initWith` property allows you to copy configurations from other build types,
-         * then configure only the settings you want to change. This one copies the debug build
-         * type, and then changes the manifest placeholder and application ID.
-         */
-        staging {
-            initWith debug
-            manifestPlaceholders = [hostName: "internal.example.com"]
-            applicationIdSuffix ".debugStaging"
-        }
-    }
-
-    // Specifies one flavor dimension.
-    flavorDimensions "version"
-    productFlavors {
-        demo {
-            // Assigns this product flavor to the "version" flavor dimension.
-            // If you are using only one dimension, this property is optional,
-            // and the plugin automatically assigns all the module's flavors to
-            // that dimension.
-            dimension "version"
-            applicationIdSuffix ".demo"
-            versionNameSuffix "-demo"
-        }
-        full {
-            dimension "version"
-            applicationIdSuffix ".full"
-            versionNameSuffix "-full"
         }
     }
 
@@ -131,14 +114,14 @@ android {
         // if true, only report errors.
         ignoreWarnings true
     }
-    /**
+    *//**
      * DATA BINDING
-     */
+     *//*
     dataBinding.enabled = true
     androidExtensions {
         experimental = true
     }
-}
+}*/
 
 dependencies {
     /**
@@ -166,4 +149,16 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.5.0'
 
     implementation "androidx.work:work-runtime:2.5.0"
+
+    /**
+     * FIREBASE
+     */
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:28.1.0')
+
+    // Declare the dependencies for the Firebase Cloud Messaging and Analytics libraries
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-messaging-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.android.gms:play-services-base:17.6.0'
 }

@@ -7,9 +7,6 @@
         android:padding="@dimen/dimen_10dp"
         tools:context="spm.androidworld.all.broadcastReceiver.BroadcastActivity">
 
-    <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
 
     <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnNormalBroadcast"

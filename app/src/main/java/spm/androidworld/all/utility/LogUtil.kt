@@ -8,7 +8,7 @@ import spm.androidworld.all.BuildConfig
  * SPM Limited
  */
 object LogUtil {
-    private const val IS_DEBUG = BuildConfig.isDebugable
+    private const val IS_DEBUG = true
     /**
      * To Show the Logs using tag and msg
      *

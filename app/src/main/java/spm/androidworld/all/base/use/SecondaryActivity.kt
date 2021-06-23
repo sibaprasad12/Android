@@ -14,7 +14,9 @@ import spm.androidworld.all.R
 import spm.androidworld.all.base.BaseActivity
 import spm.androidworld.all.utility.LogUtil
 
+
 class SecondaryActivity : BaseActivity(), BaseActivity.OnNavigationMenuClickListener {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +27,20 @@ class SecondaryActivity : BaseActivity(), BaseActivity.OnNavigationMenuClickList
 
         setSecondaryActivity()
 
+
+        /**
+         * To Fetch the notification
+         */
+        val intent = intent
+        var notificationMessage = ""
+        intent.extras?.keySet()?.forEach { key ->
+            if (key == "title") {
+                notificationMessage += "Title = ${intent.extras?.getString(key)}"
+            }
+            if (key == "message") {
+                notificationMessage += "Message = ${intent.extras?.getString(key)}"
+            }
+        }
 
         supportFragmentManager.beginTransaction()
             .setCustomAnimations(

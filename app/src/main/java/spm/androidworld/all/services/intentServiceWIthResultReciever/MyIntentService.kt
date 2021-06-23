@@ -13,7 +13,7 @@ class MyIntentService : IntentService("MyIntentService") {
     val STATUS_ERROR = 2
 
     override fun onHandleIntent(intent: Intent?) {
-        val receiver: ResultReceiver = intent!!.getParcelableExtra("receiver")
+        val receiver: ResultReceiver? = intent!!.getParcelableExtra("receiver")
 
 
         //TODO: process background task here!
@@ -31,6 +31,6 @@ class MyIntentService : IntentService("MyIntentService") {
          * we can pass the status of the service back to the activity using the resultReceiver
          *  */
         val b = Bundle()
-        receiver.send(STATUS_FINISHED, b)
+        receiver?.send(STATUS_FINISHED, b)
     }
 }
