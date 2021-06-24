@@ -4,46 +4,89 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="spm.androidworld.all.services.notification.NotificationActivity">
+        tools:context=".notification.NotificationActivity">
 
 
     <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnLocalNotification"
+            android:id="@+id/btnSimpleNotification"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_10dp"
             android:background="@color/colorPrimaryDark"
-            android:text="Local Notification"
+            android:text="Simple Notification"
             android:textColor="@color/white"
             app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnBadgeNotification"
+            android:id="@+id/btnExpandableNotification"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_10dp"
             android:background="@color/colorPrimaryDark"
-            android:text="Badge Notification"
+            android:text="Expandable Notification"
             android:textColor="@color/white"
-            app:layout_constraintTop_toBottomOf="@+id/btnLocalNotification" />
+            app:layout_constraintTop_toBottomOf="@+id/btnSimpleNotification" />
 
     <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnNotification1"
+            android:id="@+id/btnProgressNotification"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_10dp"
             android:background="@color/colorPrimaryDark"
-            android:text="btnNotification 1 "
+            android:text="Progress Notification"
             android:textColor="@color/white"
-            app:layout_constraintTop_toBottomOf="@+id/btnBadgeNotification" />
+            app:layout_constraintTop_toBottomOf="@+id/btnExpandableNotification" />
 
     <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnNotification2"
+            android:id="@+id/btnActionNotification"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_10dp"
             android:background="@color/colorPrimaryDark"
-            android:text="btnNotification 2"
+            android:text="Button Notification"
             android:textColor="@color/white"
-            app:layout_constraintTop_toBottomOf="@+id/btnNotification1" />
+            app:layout_constraintTop_toBottomOf="@+id/btnProgressNotification" />
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnShowNotificationBadge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="Show Notification Badge"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/btnActionNotification" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnShowNotificationBadgeCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="Show Notification Badge Count"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/btnShowNotificationBadge" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnLongPressNotificationBadge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="Show Badge Notification on Long Press"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/btnShowNotificationBadgeCount" />
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCustomLayoutNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="Show Custom Notification Layout"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/btnLongPressNotificationBadge" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -116,4 +116,7 @@
     <string name="fcm_topic_news">News</string>
     <string name="fcm_topic_technology">Technology</string>
     <string name="toast_playservices_unrecoverable">Google Play Service is Unreachable</string>
+    <string name="channel_name">My Channel</string>
+    <string name="channel_description">Channel Description</string>
+    <string name="long_lorem">This is an expandable notification This is an expandable notification This is an expandable notification This is an expandable notification This is an expandable notification This is an expandable notification This is an expandable notification This is an expandable notification This is an expandable notification This is an expandable notification This is an expandable notification This is an expandable notification This is an expandable notification This is an expandable notification This is an expandable notification This is an expandable notification This is an expandable notification This is an expandable notification This is an expandable notification This is an expandable notification This is an expandable notification</string>
 </resources>

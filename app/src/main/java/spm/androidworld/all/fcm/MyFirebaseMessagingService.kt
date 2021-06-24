@@ -6,8 +6,12 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.os.Build
+import android.os.Handler
+import android.os.Looper
+import android.os.Message
 import android.util.Log
 import android.widget.RemoteViews
+import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
@@ -46,6 +50,8 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
                 remoteMessage.notification?.title,
                 remoteMessage.notification?.body
             )
+
+
         }
     }
 
@@ -96,6 +102,9 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         message: String?
     ) {
         Log.i(TAG, "SHow Notification $title Content -> $message")
+
+        workerThread("Title $title Message $message")
+
         // Pass the intent to switch to the MainActivity
         val intent = Intent(this, PushNotificationActivity::class.java)
         // Assign channel ID
@@ -131,18 +140,9 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         // A customized design for the notification can be
         // set only for Android versions 4.1 and above. Thus
         // condition for the same is checked here.
-        if (Build.VERSION.SDK_INT
-            >= Build.VERSION_CODES.JELLY_BEAN
-        ) {
-            builder = builder.setContent(
-                getCustomDesign(title!!, message!!)
-            )
-        } // If Android Version is lower than Jelly Beans,
-        else {
-            builder = builder.setContentTitle(title)
-                .setContentText(message)
-                .setSmallIcon(R.drawable.ic_home_icon)
-        }
+        builder = builder.setContent(
+            getCustomDesign(title!!, message!!)
+        )
         // Create an object of NotificationManager class to
         // notify the
         // user of events that happen in the background.
@@ -163,5 +163,20 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         }
         notificationManager.notify(0, builder.build())
     }
+
+    private fun workerThread(message: String) {
+        // And this is how you call it from the worker thread:
+        val message: Message = mHandler.obtainMessage(123, message)
+        message.sendToTarget()
+    }
+
+    private val mHandler = object : Handler(Looper.getMainLooper()) {
+        override fun handleMessage(message: Message) {
+            // This is where you do your work in the UI thread.
+            // Your worker tells you in the message what to do.
+            Toast.makeText(applicationContext, message.toString(), Toast.LENGTH_LONG).show()
+        }
+    };
+
 
 }

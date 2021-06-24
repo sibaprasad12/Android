@@ -9,6 +9,7 @@ package spm.androidworld.all.base.use
 
 
 import android.os.Bundle
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_base.*
 import spm.androidworld.all.R
 import spm.androidworld.all.base.BaseActivity
@@ -41,6 +42,8 @@ class SecondaryActivity : BaseActivity(), BaseActivity.OnNavigationMenuClickList
                 notificationMessage += "Message = ${intent.extras?.getString(key)}"
             }
         }
+
+        Toast.makeText(this, "$notificationMessage", Toast.LENGTH_LONG).show()
 
         supportFragmentManager.beginTransaction()
             .setCustomAnimations(
