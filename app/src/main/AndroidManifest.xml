@@ -21,15 +21,22 @@
             android:theme="@style/AppTheme"
             tools:ignore="HardcodedDebugMode"
             tools:replace="android:debuggable">
-        <activity android:name=".fcm.PushNotificationActivity" />
-
-        <activity android:name=".notification.NotificationActivity">
+        <activity android:name=".navigation.NavigationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".fcm.PushNotificationActivity" />
+        <activity android:name=".notification.NotificationActivity">
+            <!-- <intent-filter>
+                 <action android:name="android.intent.action.VIEW" />
+                 <action android:name="android.intent.action.MAIN" />
+
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>-->
         </activity>
 
         <service
@@ -45,14 +52,16 @@
         <activity android:name=".services.ServicesActivity" />
         <activity android:name=".services.MainActivity" />
         <activity android:name=".base.use.SecondaryActivity" />
-        <!--android:theme="@style/AppTheme.NoActionBar1">
+        <!--
+android:theme="@style/AppTheme.NoActionBar1">
     <intent-filter>
         <action android:name="android.intent.action.VIEW" />
         <action android:name="android.intent.action.MAIN" />
 
         <category android:name="android.intent.category.LAUNCHER" />
     </intent-filter>
-</activity>-->
+</activity>
+        -->
         <activity android:name=".services.serviceFromCodeTutor.clientApp.ClientSideMainActivity" /> <!-- FIREBASE -->
         <activity android:name=".services.playMusic.MusicActivity" />
         <activity android:name=".services.updateUiUsingHandler.HandlerActivity" />
@@ -62,13 +71,9 @@
                 android:name=".services.playMusic.MusicService"
                 android:enabled="true"
                 android:exported="true" />
-
-
         <service
                 android:name=".services.updateUiUsingHandler.MyIntentServiceWithHandler"
                 android:exported="false" />
-
-
         <service
                 android:name=".services.intentServiceWIthResultReciever.MyIntentService"
                 android:exported="false" />
@@ -76,7 +81,6 @@
                 android:name=".services.localBindServices.MyBindService"
                 android:enabled="true"
                 android:exported="true" />
-
         <service
                 android:name=".fcm.MyFirebaseMessagingService"
                 android:exported="false">
