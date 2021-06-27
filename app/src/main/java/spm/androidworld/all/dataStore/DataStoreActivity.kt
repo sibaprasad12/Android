@@ -4,23 +4,19 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_data_store.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import spm.androidworld.all.R
 
 
 class DataStoreActivity : AppCompatActivity(), View.OnClickListener {
 
+    val userManager: UserManager by lazy {
+        UserManager(this)
+    }
 
-// At the top level of your kotlin file:
-//val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
-
-
-    /*
-    val exampleCounterFlow: Flow<Int> = context.settingsDataStore.data
-        .map { settings ->
-            // The exampleCounter property is generated from the proto schema.
-            settings.exampleCounter
-        }
-    */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_data_store)
@@ -35,15 +31,32 @@ class DataStoreActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            /*R.id.buttonSaveData -> {
-                etFirstName.text
-                etAge.text
-                etisMarried.text
+            R.id.buttonSaveData -> {
+                CoroutineScope(IO).launch {
+                    userManager.storeUser(
+                        this@DataStoreActivity,
+                        etFirstName.text.toString(),
+                        etAge.text.toString().toInt(),
+                        etisMarried.text.toString().toBoolean()
+                    )
+                }
             }
             R.id.buttonFetchData -> {
-                etFirstName.text
-                etAge.text
-                etisMarried.text
+
+                CoroutineScope(IO).launch {
+
+                    with(userManager) {
+                        fetchUserName(this@DataStoreActivity).collect {
+                            etFirstName.setText(it)
+                        }
+                        fetchUserAge(this@DataStoreActivity).collect {
+                            etAge.setText(it.toString())
+                        }
+                        fetchUserMarried(this@DataStoreActivity).collect {
+                            etisMarried.setText("$it")
+                        }
+                    }
+                }
             }
             R.id.buttonSaveProto -> {
                 etFirstNameProto.text
@@ -54,7 +67,7 @@ class DataStoreActivity : AppCompatActivity(), View.OnClickListener {
                 etFirstNameProto.text
                 etAgeProto.text
                 etisMarriedProto.text
-            }*/
+            }
         }
     }
 
