@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".dataStore.DataStoreActivity">
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDatastorePreference"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/color300"
+            android:gravity="center"
+            android:text="DataStore Preference"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_10dp"
+            android:paddingStart="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvDatastorePreference" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_10dp"
+            android:hint="Age"
+            android:paddingStart="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/etFirstName" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etisMarried"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_10dp"
+            android:hint="Is Married"
+            android:paddingStart="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/etAge" />
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonSaveData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_10dp"
+            android:hint="Save Preference"
+            android:paddingStart="10dp"
+            app:layout_constraintEnd_toStartOf="@+id/buttonFetchData"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etisMarried" />
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonFetchData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_10dp"
+            android:hint="Fetch Preference"
+            android:paddingStart="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/buttonSaveData"
+            app:layout_constraintTop_toBottomOf="@+id/etisMarried" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDatastoreProto"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:background="@color/color300"
+            android:gravity="center"
+            android:text="DataStore Proto - to Store custom data"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/buttonSaveData" />
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etFirstNameProto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_10dp"
+            android:hint="Name"
+            android:paddingStart="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvDatastoreProto" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etAgeProto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_10dp"
+            android:hint="Age"
+            android:paddingStart="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/etFirstNameProto" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etisMarriedProto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_10dp"
+            android:hint="Is Married"
+            android:paddingStart="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/etAgeProto" />
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonSaveProto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_10dp"
+            android:hint="Save Proto"
+            android:paddingStart="10dp"
+            app:layout_constraintEnd_toStartOf="@+id/buttonFetchData"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etisMarriedProto" />
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonFetchProto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_10dp"
+            android:hint="Fetch Proto"
+            android:paddingStart="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/buttonSaveData"
+            app:layout_constraintTop_toBottomOf="@+id/etisMarriedProto" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

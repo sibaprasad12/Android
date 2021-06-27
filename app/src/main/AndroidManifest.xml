@@ -21,6 +21,8 @@
             android:theme="@style/AppTheme"
             tools:ignore="HardcodedDebugMode"
             tools:replace="android:debuggable">
+        <activity android:name=".workManager.WorkManagerActivity"></activity>
+        <activity android:name=".dataStore.DataStoreActivity" />
         <activity android:name=".navigation.NavigationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -31,12 +33,15 @@
         </activity>
         <activity android:name=".fcm.PushNotificationActivity" />
         <activity android:name=".notification.NotificationActivity">
-            <!-- <intent-filter>
+
+            <!--
+             <intent-filter>
                  <action android:name="android.intent.action.VIEW" />
                  <action android:name="android.intent.action.MAIN" />
 
                  <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>-->
+             </intent-filter>
+            -->
         </activity>
 
         <service
