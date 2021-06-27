@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_40dp"
+            android:background="@color/color300"
+            android:text="Save User"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_20sp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etFname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_5dp"
+            android:hint="first name"
+            app:layout_constraintEnd_toStartOf="@+id/etLname"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etLname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_5dp"
+            android:hint="first name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/etFname"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etAge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_5dp"
+            android:hint="Age"
+            app:layout_constraintEnd_toStartOf="@+id/etMobile"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etFname" />
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etMobile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_5dp"
+            android:hint="Mobile"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/etAge"
+            app:layout_constraintTop_toBottomOf="@+id/etLname" />
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonSaveUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save User"
+            app:layout_constraintTop_toBottomOf="@+id/etMobile" />
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewUser"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonSaveUser" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

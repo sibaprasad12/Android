@@ -84,7 +84,8 @@
              daggerSupport        : "com.google.dagger:dagger-android-support:$dagger_version",
              daggerProcessor      : "com.google.dagger:dagger-android-processor:$dagger_version", // annotationProcessor
              //picaso
-             picasso              : "com.squareup.picasso:picasso:"+picasso_version
+             picasso              : "com.squareup.picasso:picasso:"+picasso_version,
+             json              : "com.squareup.retrofit2:converter-moshi:2.6.2"
      ]
 
     // "com.github.hani-momanii:SuperNova-Emoji:1.1"
