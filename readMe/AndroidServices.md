@@ -1,4 +1,8 @@
 # Services
+
+
+https://sonique6784.medium.com/protect-your-room-database-with-sqlcipher-on-android-78e0681be687
+
 - Service is one of the four major components of Android
 - Services are used to perform long running tasks in background
 - Service does not have UI.
@@ -8,7 +12,7 @@
 - How to start a service
 - How to stop a service
 - Does service actually run in background ?
-
+- Service run in main thread not in background thread
 >> You can not stop service out of the service. But you can call stopSelf() inside onStrtCommand() of service class.
 If you have not written stopSelf method then service will not stop if you stop the service from activity
 
@@ -27,13 +31,13 @@ stopService(serviceIntent)
 - But in some scenario, services gets killed. what happens to the service when memory available again
 - In the onStart command, whatever you return, that depends on the behaviour of the service
 
-| VALUE Oe Return in OnStart Command | Auto Restart | Intent |
+| VALUE Of Return in OnStart Command | Auto Restart | Intent |
 | ------ | ------ |-------|
 | START_STICKY| YES | Null Intent |
 | START_NOT_STICKY| NO | With Intent When Started |
 | START_REDELEVER_INTENT | YES | INTENT |
 
-## When To use thses
+## When To use these
 - **START_STICKY**
     - Services are being explictly managed & Long Running.
     - No Need to remember state at kill time.
@@ -94,7 +98,7 @@ stopService(serviceIntent)
 - You can bind intent service same as we have done for normal service
 
 ## Changes Background services in Oreo
-- IN Oreo and later os, android not allow services to run in the background for longer time
+- In Oreo and later os, android not allow services to run in the background for longer time
 - System kills the services automatically after 2 minutes you put the application in background
 - Once you put your application in foreground the service start running again
 - To solve this issue, we can use any one of these

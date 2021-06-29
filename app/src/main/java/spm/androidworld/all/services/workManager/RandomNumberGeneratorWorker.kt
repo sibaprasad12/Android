@@ -14,7 +14,10 @@ import java.util.*
  * sp.dobest@gmail.com
  */
 
-class RandomNumberGeneratorWorker(val context: Context, val workerParams: WorkerParameters) : Worker(
+class RandomNumberGeneratorWorker(
+    val context: Context,
+    private val workerParams: WorkerParameters
+) : Worker(
     context,
     workerParams
 ) {

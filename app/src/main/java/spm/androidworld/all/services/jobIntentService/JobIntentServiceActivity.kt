@@ -32,7 +32,7 @@ class JobIntentServiceActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(view: View) {
-        when (view.getId()) {
+        when (view.id) {
             R.id.buttonThreadStarter -> {
                 serviceIntent!!.putExtra("starter", "starter" + ++count)
                 MyIntentService.enqueueWork(this, serviceIntent)

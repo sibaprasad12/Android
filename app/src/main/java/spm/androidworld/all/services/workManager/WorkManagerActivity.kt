@@ -53,6 +53,12 @@ class WorkManagerActivity : AppCompatActivity(), View.OnClickListener {
             R.id.buttonThreadStarter -> {
                 mStopLoop = true
                 workManager!!.enqueue(workRequest!!)
+
+                /*WorkManager.getInstance(...)
+                .beginWith(listOf(workA,workB))
+                    .then(workC)
+                    .enqueue()*/
+
             }
             R.id.buttonStopthread -> workManager!!.cancelWorkById(workRequest!!.id)
         }
