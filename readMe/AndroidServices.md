@@ -1,6 +1,6 @@
 # Services
 
-
+https://android-developers.googleblog.com/2018/10/modern-background-execution-in-android.html
 https://sonique6784.medium.com/protect-your-room-database-with-sqlcipher-on-android-78e0681be687
 
 - Service is one of the four major components of Android
