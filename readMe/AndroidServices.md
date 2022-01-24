@@ -1,6 +1,6 @@
 # Services
 
-
+https://android-developers.googleblog.com/2018/10/modern-background-execution-in-android.html
 https://sonique6784.medium.com/protect-your-room-database-with-sqlcipher-on-android-78e0681be687
 
 - Service is one of the four major components of Android
@@ -90,12 +90,34 @@ stopService(serviceIntent)
 >> Bound service can not be stopped, it only unbind
 
 ## Intent Service
+- Service class uses the application’s main thread, while IntentService creates a worker thread and uses that thread to run the service.
+- IntentService creates a queue that passes one intent at a time to onHandleIntent(). Thus, implementing a multi-thread should be made by extending Service class directly. Service class needs a manual stop using stopSelf(). Meanwhile, IntentService automatically stops itself when there is no intent in queue.
+- IntentService implements onBind() that returns null. This means that the IntentService can not be bound by default.
+- IntentService implements onStartCommand() that sends Intent to queue and to onHandleIntent(). In brief, there are only two things to do to use IntentService. 
+- Firstly, to implement the constructor. And secondly, to implement onHandleIntent(). For other callback methods, the super is needed to be called so that it can be tracked properly.
+- **Thread management:** It automatically processes all incoming requests in a separate thread taking the burden of thread management away from the developer.
+- **Request Queue:** It queues up all the incoming requests and they are processed one by one
+- **Stop point:** Once the request Queue is empty it automatically stops itself, so the developer need not worry about handling the service lifecycle.
+
+As a developer, we just have to focus on our core business logic and implement it in the OnHandleIntent callback method.
 - It's parent class is Service
 - But it run in another thread apart from Main thread
 - It executes all the methods calling from onHandleIntent method in background thread
 - It stop itself once the task is completed
 - You can pass multiple parameters to do multiple task in a queue
 - You can bind intent service same as we have done for normal service
+- When you call intent service like this
+```
+Intent someIntent1 = new Intent(this, myIntentService.class);
+Intent someIntent2 = new Intent(this, myIntentService.class);
+Intent someIntent3 = new Intent(this, myIntentService.class);
+startService(someIntent1);
+startService(someIntent2);
+startService(someIntent3);
+```
+- Then it will not create multiple instance of the Intent service, the same intent service will execute code one by one
+- each IntentService only has one HandlerThread that it uses to execute requests in the order that "startService" is called.
+- To differentiate between requests, use the Intent system as it's intended! Provide different "Actions" for different jobs the service can carry out, and pass along any extras the IntentService needs to run correctly for that particular job as extras in the Intent object you're using to start the Service.
 
 ## Changes Background services in Oreo
 - In Oreo and later os, android not allow services to run in the background for longer time
@@ -114,7 +136,7 @@ stopService(serviceIntent)
     - cls is nothing but the jobIntent service
     - JobId is unique integer
     - work is the intent through which you want to pass data to the service
-- One more method is fun onHandleWORK(intent: Intent)
+- One more method is fun onHandleWork(intent: Intent)
     - This method is executed as soon as you invock enqueueWOrk method
 - fun onStopCurrentWork() : Boolean
     - If you return true, that means you tell OS to reschedule the service
@@ -152,10 +174,10 @@ stopService(serviceIntent)
 </service
 ```
 ## Foreground service
-- if the application gets killed then jobIntentService and Job Service gets killed
-- If you want to keep it running if the app killed, then use ForeGroundService
-- Foreground Service performs the task that are noticeable to the user.\ by showing a notification
-- YOu need to add on permission FOREGROUND_SERVICE in manifest file
+- if the application gets killed then jobIntentService and Job Service gets killed.
+- If you want to keep it running if the app killed, then use ForeGroundService.
+- Foreground Service performs the task that are noticeable to the user by showing a notification.
+- You need to add on permission FOREGROUND_SERVICE in manifest file.
 - Define serviceType in the manifest file like (dataSync, DeviceConnection, locationUpdate)
 - To start a service you need to call starForeground(id, Notification)
 
@@ -165,7 +187,7 @@ stopService(serviceIntent)
     - Scheduling Mechanism
         - One time
         - Repetitive
-        - Compatible with DOze mode , Power saving mode
+        - Compatible with Doze mode , Power saving mode
 - Reliabily
     - Run Under Constraints
         - Run only when device is WIFI connected
@@ -189,12 +211,12 @@ stopService(serviceIntent)
     - Cancelling Work
 
 ## Advantage
-- YOu can start your  task from background
+- You can start your  task from background
 - It will continue running after you restart your application
-- You can set periodic work as weell- which means it will repeate after sometime you set
+- You can set periodic work as well- which means it will repeate after sometime you set
 
 ## Working with multiple Worker
-- Lets consider, you have 3 Worker class, Worker1, Worker2, WOrker3. YOu want to run the task one after another
+- Lets consider, you have 3 Worker class, Worker1, Worker2, WOrker3. You want to run the task one after another
 - WIth the help of WOrkManager
 - workManager.toBeginWIth(worker1).then(worker2).then(worker3)
 - You can set worker tag in the worker request to cancel later

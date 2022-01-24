@@ -10,7 +10,7 @@ Its contains all the sample code of new and advance concepts in android
 - ## [Localization](https://github.com/spdobest/AndroidWorld/blob/Localization/README.md)  
 - ## [Android Network Call](https://github.com/spdobest/AndroidWorld/blob/NetworkCalls/README.md)  
 - ## [Android Profiling](https://github.com/spdobest/AndroidWorld/blob/AndroidProfiling/README.md)   
-- ## [Background Services](https://github.com/spdobest/AndroidWorld/blob/BackgroundServices/README.md)
+- ## [Background Services](https://github.com/sibaprasad12/Android/blob/main/readMe/AndroidServices.md)
 - ## [Database](https://github.com/sibaprasad12/Android/blob/main/readMe/Database.md)
 - ## [Firebase](https://github.com/spdobest/AndroidWorld/blob/Firebase/README.md)
 - ## [Background Services](https://github.com/spdobest/AndroidWorld/blob/BackgroundServices/README.md)
