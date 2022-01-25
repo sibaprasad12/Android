@@ -1,6 +1,5 @@
 package spm.androidworld.all.base
 
-
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -20,7 +19,6 @@ import com.heyyy.main.utility.AppConstant
 import kotlinx.android.synthetic.main.activity_base.*
 import spm.androidworld.all.R
 import spm.androidworld.all.utility.ImageUtil
-import spm.androidworld.all.utility.LogUtil
 
 
 abstract class BaseActivity : AppCompatActivity(), BaseInterface, BaseFragment.ToolbarListener {
@@ -33,7 +31,6 @@ abstract class BaseActivity : AppCompatActivity(), BaseInterface, BaseFragment.T
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_base)
         setUpDrawer()
-        LogUtil.showLog("Base", "oncreate")
         onNavigationMenuCLickListener = this as OnNavigationMenuClickListener
     }
 
