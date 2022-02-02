@@ -22,7 +22,6 @@ import spm.androidworld.all.utility.ImageUtil
 
 
 abstract class BaseActivity : AppCompatActivity(), BaseInterface, BaseFragment.ToolbarListener {
-
     private var isSecondaryActivity = false
     private var enableToolbarIcons: Boolean = false
     private lateinit var onNavigationMenuCLickListener:OnNavigationMenuClickListener
@@ -52,19 +51,6 @@ abstract class BaseActivity : AppCompatActivity(), BaseInterface, BaseFragment.T
         val inflater =
             getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         return inflater.inflate(layout, container, true)
-    }
-
-    protected open fun showSplashDialog() {
-       /* val splashDialog = SplashDialogFragment()
-        try {
-            splashDialog.show(supportFragmentManager, SplashDialogFragment.TAG)
-        } catch (e: IllegalStateException) {
-            Toast.makeText(this, R.string.something_went_wrong, Toast.LENGTH_SHORT).show()
-        }
-
-        Handler().postDelayed({
-            splashDialog.dismiss()
-        }, 2000)*/
     }
 
     protected open fun lockDrawer() {
